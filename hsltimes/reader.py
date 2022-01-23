@@ -19,7 +19,7 @@ class TextFileReader(Reader):
         """Initializes TextFileReader for reading."""
         self.encoding: str = "utf-8"
 
-    def read_data(self, filename: str, start: int=0) -> object:
+    def read_data(self, filename: str, start: int=1) -> object:
         """
         Reads in a text file.
 
@@ -33,6 +33,6 @@ class TextFileReader(Reader):
         """
         with open(filename, "r", encoding=self.encoding) as f:
             return (
-                i for idx, i in enumerate(f.read().split("\n"))
+                i for idx, i in enumerate(f.read().split("\n"), 1)
                 if idx >= start
             )
