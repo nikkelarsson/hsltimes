@@ -4,7 +4,7 @@ from setuptools import setup
 def readme() -> str:
     """Long description."""
     with open("README.md", "r", encoding="utf-8") as f:
-    return f.read()
+        return f.read()
 
 
 setup(
