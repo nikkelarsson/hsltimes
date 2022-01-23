@@ -1,12 +1,12 @@
-"""Short description of what this program does"""
+"""Show public transport times."""
 
 
 __program__: str = "hsltimes"
 __author__: str = ""
 __copyright__: str = ""
-__credits__: list = []
+__credits__: list = ["Niklas Larsson", "Ben Panyanil"]
 __license__: str = ""
-__version__: str = ""
+__version__: str = "0.0.1b0"
 __maintainer__: str = ""
 __email__: str = ""
 __status__: str = ""
