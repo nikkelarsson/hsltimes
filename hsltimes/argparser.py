@@ -22,7 +22,9 @@ class ArgumentParser(Parser):
         self.args: dict = {"short": None, "long": None, "invalid": None}
 
         self.__switches: dict = {
-            "version": False, "authors": False, "help": False
+            "version": False,
+            "authors": False,
+            "help": False
         }
 
     @property
