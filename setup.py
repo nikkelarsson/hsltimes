@@ -26,7 +26,7 @@ setup(
     # valid values are: text/plain, text/x-rst, text/markdown.
     # Optional if 'long_description' is written in rst, otherwise
     # required (for plain-text and Markdown)
-    #long_description_content_type="text/markdown",  # Optional
+    long_description_content_type="text/markdown",  # Optional
 
     # Who owns this project?
     #author="",  # Optional
