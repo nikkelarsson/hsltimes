@@ -26,7 +26,7 @@ setup(
     # valid values are: text/plain, text/x-rst, text/markdown.
     # Optional if 'long_description' is written in rst, otherwise
     # required (for plain-text and Markdown)
-    #long_description_content_type="text/markdown",  # Optional
+    long_description_content_type="text/markdown",  # Optional
 
     # Who owns this project?
     #author="",  # Optional
@@ -77,7 +77,7 @@ setup(
     #install_requires=[],  # Optional
 
     # Need to install, for example, man-pages that your project has?
-    #data_files=[("man/man1", ["docs/manpage.1"])],  # Optional
+    data_files=[("man/man1", ["docs/hsltimes.1"])],  # Optional
 
     # Any executable scripts?
     # For example, the following would provide a command
@@ -98,6 +98,6 @@ setup(
     # Additional URLs that are relevant to your project
     project_urls={  # Optional
         #"Bug Reports": "https://github.com...",
-        #"Source": "https://github.com..."
+        "Source": "https://github.com/nikkelarsson/hsltimes"
     }
 )

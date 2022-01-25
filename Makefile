@@ -11,6 +11,16 @@ build:
 	rm -rf dist/
 	$(PYTHON) -m build
 
+.PHONY: check
+check:
+	@echo "Checking that brief / long descriptions in setup.py are valid..."
+	twine check dist/*
+
+.PHONY: upload
+upload:
+	@echo "Attempting to upload $(PROG) to PyPI..."
+	twine upload dist/*
+
 .PHONY: clean
 clean:
 	@echo "Cleaning distribution packages..."

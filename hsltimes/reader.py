@@ -1,6 +1,5 @@
 """Routines for reading in files."""
 
-
 import abc
 
 
@@ -27,7 +26,6 @@ class TextFileReader(Reader):
             filename.... File to read from.
 
         Returns:
-            The contents of the text file as a generator object.
+            The opened file as is (as an file object).
         """
-        with open(filename, "r", encoding=self.encoding) as f:
-            return f.read()
+        return open(filename, "r", encoding=self.encoding)
