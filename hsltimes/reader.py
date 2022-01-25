@@ -30,4 +30,4 @@ class TextFileReader(Reader):
             The contents of the text file as a generator object.
         """
         with open(filename, "r", encoding=self.encoding) as f:
-            return (i for i in f.read().split("\n"))
+            return f.read()

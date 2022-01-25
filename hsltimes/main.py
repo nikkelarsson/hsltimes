@@ -1,5 +1,5 @@
-"""Show public transport times."""
-
+"""Short description of what this program does"""
+from hsltimes import parser
 
 __program__: str = "hsltimes"
 __author__: str = ""
@@ -14,7 +14,8 @@ __status__: str = ""
 
 def main() -> None:
     """Main function."""
-    pass
+    x = parser.Parser()
+    x.generate_all()
 
 
 if __name__ == "__main__":
