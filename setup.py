@@ -77,7 +77,7 @@ setup(
     #install_requires=[],  # Optional
 
     # Need to install, for example, man-pages that your project has?
-    data_files=[("man/man1", ["docs/hsltimes.1"])],  # Optional
+    # data_files=[("man/man1", ["docs/hsltimes.1"])],  # Optional
 
     # Any executable scripts?
     # For example, the following would provide a command
