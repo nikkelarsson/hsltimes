@@ -86,6 +86,7 @@ setup(
     entry_points={  # Optional
         "console_scripts": [
             "hsltimes=hsltimes.main:main",
+            "freshtables=hsltimes.downloader:main",
         ]
     },
 
