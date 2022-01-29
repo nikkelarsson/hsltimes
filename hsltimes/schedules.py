@@ -1,32 +1,49 @@
-from calendar import FRIDAY, SATURDAY, SUNDAY, THURSDAY, TUESDAY, WEDNESDAY
+from multiprocessing.sharedctypes import Value
 import os
 from hsltimes import reader
 import pandas as pd
 from pathlib import Path
 home = str(Path.home())
 
-class Parser():
-    def __init__(self, bus_number, stop_name):
-        self.__stops = open(f"{home}/.local/share/hsltimes/stops.txt", "r")
-        self.__routes = open(f"{home}/.local/share/hsltimes/routes.txt", "r")
-        self.__stoptimes = open(f"{home}/.local/share/hsltimes/stop_times.txt", "r")
+class Schedules():
+    def __init__(self, stop_name, bus_number):
+        stops_file = reader.TextFileReader().read_data(f"{home}/.local/share/hsltimes/stops.txt")
+        routes_file = reader.TextFileReader().read_data(f"{home}/.local/share/hsltimes/routes.txt")
+        stoptimes_file = reader.TextFileReader().read_data(f"{home}/.local/share/hsltimes/stop_times.txt")
+
+        self.__df_stops = pd.read_csv(stops_file)
+        self.__df_routes = pd.read_csv(routes_file)
+        self.__df_stoptimes = pd.read_csv(stoptimes_file)
+
+        self.validate_arguments(stop_name, bus_number)
+        self.validate_bus_number(bus_number)
+        self.validate_stop_name(stop_name)
+
+        self.__FOLDER = "week_schedule"
         self.__BUS_NUM = bus_number
         self.__STOP_NAME = stop_name.lower()
-        self.__FOLDER = "week_schedule"
 
-    def correct_arguments(self):
-        if isinstance(self.__BUS_NUM, str) and isinstance(self.__STOP_NAME, str):
-            return True
-        else:
+
+    def validate_arguments(self, stop_name, bus_number):
+        if not isinstance(stop_name, str) or not isinstance(bus_number, str):
             raise ValueError("Parser class arguments needs to be in string format")
+
+    def validate_bus_number(self, bus_number):
+        df_routes = self.__df_routes
+        if bus_number not in df_routes["route_short_name"].values:
+            raise ValueError(f"Bus number {bus_number} does not exist")
+
+    def validate_stop_name(self, stop_name):
+        df_stops = self.__df_stops
+        stop_name = stop_name.capitalize()
+        if stop_name not in df_stops["stop_name"].values:
+            raise ValueError(f"Stop name {stop_name} does not exist")
 
 
     def generate_all(self):
-        if not self.correct_arguments(): return
-
-        df_stops = pd.read_csv(self.__stops)
-        df_routes = pd.read_csv(self.__routes)
-        df_stoptimes = pd.read_csv(self.__stoptimes)
+        df_stops = self.__df_stops
+        df_routes = self.__df_routes
+        df_stoptimes = self.__df_stoptimes
 
         # GET DESIRED STOP WITH STOP NAME
         df_stops = df_stops[df_stops["stop_name"] == self.__STOP_NAME.capitalize()]
