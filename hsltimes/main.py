@@ -12,11 +12,3 @@ __email__: str = ""
 __status__: str = ""
 
 
-def main() -> None:
-    """Main function."""
-    x = parser.Parser()
-    x.generate_all()
-
-
-if __name__ == "__main__":
-    main()
