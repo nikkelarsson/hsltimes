@@ -2,6 +2,7 @@
 
 import sys
 from hsltimes import argparser
+from hsltimes import schedules
 
 
 __program__: str = "hsltimes"
