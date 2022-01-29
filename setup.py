@@ -74,7 +74,7 @@ setup(
     #python_requires=">=3.8",  # Optional
 
     # Any dependencies?
-    #install_requires=[],  # Optional
+    install_requires=["dbugging"],  # Optional
 
     # Need to install, for example, man-pages that your project has?
     # data_files=[("man/man1", ["docs/hsltimes.1"])],  # Optional
