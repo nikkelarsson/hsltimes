@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 import os
 from hsltimes import reader
 import pandas as pd
@@ -96,13 +95,13 @@ class Schedules():
         os.makedirs(self.__FOLDER, exist_ok=True)
 
         # CREATE ALL CSV DATA
-        df_ma.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_maanantai")
-        df_ti.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_tiistai")
-        df_ke.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_keskiviikko")
-        df_to.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_torstai")
-        df_pe.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_perjantai")
-        df_la.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_lautantai")
-        df_su.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_sunnuntai")
+        df_ma.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_maanantai.csv", index=False)
+        df_ti.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_tiistai.csv", index=False)
+        df_ke.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_keskiviikko.csv", index=False)
+        df_to.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_torstai.csv", index=False)
+        df_pe.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_perjantai.csv", index=False)
+        df_la.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_lautantai.csv", index=False)
+        df_su.to_csv(f"{self.__FOLDER}/{self.__STOP_NAME}_sunnuntai.csv", index=False)
 
 
 
