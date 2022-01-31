@@ -1,5 +1,5 @@
 # *** FUNCTION MANUAL ***
-# 1. import the function to your code via from hsltimes import timechecker
+# 1. import the function to your code via -> from hsltimes import timechecker
 # 2. pass a time string as argument in hh:mm:ss format, for example 04:20:00. 
 # 3. The function returns the difference in minutes between current time and 
 #    time your passed in to the function. example timechecker("16:42:15") -> return difference in minutes
